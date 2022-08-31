@@ -1,15 +1,18 @@
-* {
-    margin: 0;
-    padding: 0;
+*, *::after, *::before {
     box-sizing: border-box;
+    margin: 0;
 }
 
 :root {
-
+    /* size for the cells */
+    --cell-size: 100px;
+    /* x's and o's sizing will be slightly smaller */
+    --mark-size: cal(var(--cell-size) * .9)
 }
 
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
 }
 
 h1 {
@@ -21,7 +24,44 @@ h1 {
 }
 
 .board {
-    display: flex;
+    display: grid;
     justify-content: center;
+    align-content: center;
+    justify-items: center;
     align-items: center;
+    width: 100vw;
+    height: 100vh;
+    grid-template-columns: repeat(3, auto);
 }
+
+.cell {
+    width: var(--cell-size);
+    height: var(--cell-size);
+    border: 1px solid black;
+}
+
+.cell:first-child, 
+.cell:nth-child(2),
+.cell:nth-child(3) {
+    border-top: none;
+}
+
+.cell:first-child,
+.cell:nth-child(4),
+.cell:nth-child(7) {
+    border-left: none;
+}
+
+.cell:nth-child(7),
+.cell:nth-child(8),
+.cell:last-child {
+    border-bottom: none;
+}
+
+.cell:nth-child(3),
+.cell:nth-child(6),
+.cell:last-child {
+    border-right: none;
+}
+
+
