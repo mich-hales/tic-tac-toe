@@ -1,7 +1,9 @@
-var xos = document.querySelectorAll('.xo');
+const cellElements = document.querySelectorAll('[data-cell]');
 
-for (const xo of xos) {
-    xo.addEventListener('click', function displayXO() {
-        xo.innerHTML = 'x';
-    })
+cellElements.forEach(cell => {
+    cell.addEventListener('click', handleClick, { once: true})
+})
+
+function handleClick(e) {
+    console.log('clicked');
 }
